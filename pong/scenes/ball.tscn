@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://cyomdjswcqwtt"]
+[gd_scene load_steps=5 format=3 uid="uid://cyomdjswcqwtt"]
 
 [ext_resource type="Texture2D" uid="uid://cfoniga7qi4yu" path="res://assets/ball.png" id="1_7s4qf"]
+[ext_resource type="Script" uid="uid://dk0shwt4gibfe" path="res://scripts/ball.gd" id="1_cxlvu"]
+[ext_resource type="Texture2D" uid="uid://fnl6qtklvqbr" path="res://assets/ball_particles.png" id="3_f7cbr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cxlvu"]
 
-[node name="ball" type="RigidBody2D"]
+[node name="ball" type="Area2D"]
 texture_filter = 1
+script = ExtResource("1_cxlvu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_7s4qf")
@@ -13,3 +16,21 @@ texture = ExtResource("1_7s4qf")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(0.5, 0.5)
 shape = SubResource("CircleShape2D_cxlvu")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 100
+texture = ExtResource("3_f7cbr")
+emission_shape = 1
+emission_sphere_radius = 8.05
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.1
+initial_velocity_max = 30.31
+linear_accel_min = -36.36
+linear_accel_max = 44.44
+scale_amount_min = 0.5
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

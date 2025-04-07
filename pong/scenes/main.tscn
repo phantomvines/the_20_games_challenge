@@ -1,24 +1,67 @@
-[gd_scene load_steps=4 format=3 uid="uid://71xsrwgjyx62"]
+[gd_scene load_steps=9 format=3 uid="uid://71xsrwgjyx62"]
 
 [ext_resource type="Texture2D" uid="uid://bcnyi4iqw0wv3" path="res://assets/background.png" id="1_0wfyh"]
+[ext_resource type="Script" uid="uid://crc0vy7vdoq60" path="res://scenes/main.gd" id="1_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://dki3sfef3s4jw" path="res://scenes/player.tscn" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cyomdjswcqwtt" path="res://scenes/ball.tscn" id="3_sugp2"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jyhfs"]
+size = Vector2(400, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sugp2"]
+size = Vector2(400, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tbgi4"]
+size = Vector2(7.13799, 63.5469)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tefeu"]
+size = Vector2(7, 286)
+
 [node name="main" type="Node2D"]
+script = ExtResource("1_jyhfs")
 
 [node name="sprite_background" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("1_0wfyh")
 offset = Vector2(200, 150)
 
-[node name="Player1" parent="." instance=ExtResource("2_sugp2")]
-position = Vector2(386, 149)
+[node name="Player1" parent="." groups=["players"] instance=ExtResource("2_sugp2")]
+position = Vector2(384, 151)
 is_player_1 = false
 player_speed = 8000
 
-[node name="Player2" parent="." instance=ExtResource("2_sugp2")]
+[node name="Player2" parent="." groups=["players"] instance=ExtResource("2_sugp2")]
 position = Vector2(12, 157)
 player_speed = 8000
 
 [node name="ball" parent="." instance=ExtResource("3_sugp2")]
-position = Vector2(200, 154)
+position = Vector2(200, 150)
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="lower_bounding_box" type="StaticBody2D" parent="." groups=["bounding_box"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lower_bounding_box" groups=["bounding_box"]]
+position = Vector2(200, 302)
+shape = SubResource("RectangleShape2D_jyhfs")
+
+[node name="upper_bounding_box" type="StaticBody2D" parent="." groups=["bounding_box"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="upper_bounding_box" groups=["bounding_box"]]
+position = Vector2(200, 10)
+shape = SubResource("RectangleShape2D_sugp2")
+
+[node name="left_hit_area" type="Area2D" parent="." groups=["left_hit_area"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="left_hit_area" groups=["left_hit_area"]]
+position = Vector2(-2, 161.59)
+scale = Vector2(1.04821, 4.48205)
+shape = SubResource("RectangleShape2D_tbgi4")
+
+[node name="right_hit_area" type="Area2D" parent="." groups=["right_hit_area"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="right_hit_area" groups=["right_hit_area"]]
+position = Vector2(401.5, 160)
+shape = SubResource("RectangleShape2D_tefeu")
+
+[connection signal="body_entered" from="ball" to="ball" method="_on_body_entered"]
