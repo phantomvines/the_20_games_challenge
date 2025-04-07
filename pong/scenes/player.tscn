@@ -1,7 +1,22 @@
-[gd_scene format=3 uid="uid://dki3sfef3s4jw"]
+[gd_scene load_steps=5 format=3 uid="uid://dki3sfef3s4jw"]
+
+[ext_resource type="Texture2D" uid="uid://daoq8m3hwh0k7" path="res://assets/player1.png" id="1_g2els"]
+[ext_resource type="Script" uid="uid://chouae2as0w16" path="res://scripts/player.gd" id="1_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://cslwtdqbjnu47" path="res://assets/player2.png" id="2_qhqgy"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_g2els"]
+points = PackedVector2Array(-4, -13, -2, -14, 2, -14, 4, -13, 4, 13, 2, 14, -2, 14, -4, 13)
 
 [node name="Player" type="CharacterBody2D"]
+texture_filter = 1
+script = ExtResource("1_qhqgy")
+
+[node name="sprite_player1" type="Sprite2D" parent="."]
+texture = ExtResource("1_g2els")
+
+[node name="sprite_player2" type="Sprite2D" parent="."]
+texture = ExtResource("2_qhqgy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1, 2)
+shape = SubResource("ConvexPolygonShape2D_g2els")
