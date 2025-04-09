@@ -10,7 +10,7 @@ var time_elapsed = 0
 # Emmission length of particles
 var emission_length = 0.1
 
-signal ball_hit(String)
+signal ball_hit(side: String)
 
 func _process(delta: float) -> void:
 	# move ball in direction
