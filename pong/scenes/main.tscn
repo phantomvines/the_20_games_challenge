@@ -51,17 +51,32 @@ shape = SubResource("RectangleShape2D_jyhfs")
 position = Vector2(200, 10)
 shape = SubResource("RectangleShape2D_sugp2")
 
-[node name="left_hit_area" type="Area2D" parent="." groups=["left_hit_area"]]
+[node name="left_hit_area" type="StaticBody2D" parent="." groups=["left_hit_area"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="left_hit_area" groups=["left_hit_area"]]
 position = Vector2(-2, 161.59)
 scale = Vector2(1.04821, 4.48205)
 shape = SubResource("RectangleShape2D_tbgi4")
 
-[node name="right_hit_area" type="Area2D" parent="." groups=["right_hit_area"]]
+[node name="right_hit_area" type="StaticBody2D" parent="." groups=["right_hit_area"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="right_hit_area" groups=["right_hit_area"]]
 position = Vector2(401.5, 160)
 shape = SubResource("RectangleShape2D_tefeu")
 
+[node name="lives_player_1" type="Label" parent="."]
+offset_left = 5.0
+offset_top = -1.0
+offset_right = 45.0
+offset_bottom = 22.0
+text = "Lifes: 3"
+
+[node name="lives_player_2" type="Label" parent="."]
+offset_left = 337.0
+offset_top = -1.0
+offset_right = 394.0
+offset_bottom = 22.0
+text = "Lifes: 3"
+
+[connection signal="ball_hit" from="ball" to="." method="_on_ball_ball_hit"]
 [connection signal="body_entered" from="ball" to="ball" method="_on_body_entered"]

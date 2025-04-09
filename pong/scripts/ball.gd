@@ -4,14 +4,19 @@ extends Area2D
 @export var ball_speed = 100
 var ball_dir = Vector2(1,2).normalized()
 
+# for speeding up the ball
+var time_elapsed = 0
+
 # Emmission length of particles
 var emission_length = 0.1
 
-signal ball_hit()
+signal ball_hit(String)
 
 func _process(delta: float) -> void:
 	# move ball in direction
-	position += ball_dir * ball_speed * delta
+	time_elapsed += delta
+	position += ball_dir * (ball_speed+time_elapsed) * delta
+	#print(time_elapsed)
 
 func _on_body_entered(body: Node2D) -> void:
 	# Bounce off of Player
@@ -30,12 +35,14 @@ func _on_body_entered(body: Node2D) -> void:
 		
 	# ball hits left hit area, teleported to middle
 	if body.is_in_group("left_hit_area"):
+		print("left")
 		position = Vector2(200, 150)
 		ball_dir = Vector2(1,2).normalized()
 		ball_hit.emit("left")
 	
 	# ball hits right hit area, teleported to middle
 	if body.is_in_group("right_hit_area"):
+		print("right")
 		position = Vector2(200, 150)
 		ball_dir = Vector2(1,2).normalized()
 		ball_hit.emit("right")
