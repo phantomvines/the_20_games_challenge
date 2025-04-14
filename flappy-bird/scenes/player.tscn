@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://wqd2b6rfqdo5"]
+
+[ext_resource type="Texture2D" uid="uid://crixuvf5ejnse" path="res://assets/player.png" id="1_3vyb7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
+radius = 21.0238
+
+[node name="Player" type="CharacterBody2D"]
+motion_mode = 1
+
+[node name="character_sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_3vyb7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_g2els")
+disabled = true
