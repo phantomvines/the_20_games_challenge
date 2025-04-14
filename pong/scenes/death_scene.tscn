@@ -14,6 +14,14 @@ offset_right = 256.0
 offset_bottom = 140.0
 texture_normal = ExtResource("2_vcjmr")
 
+[node name="Label" type="Label" parent="retry"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 12.0
+offset_right = 86.0
+offset_bottom = 35.0
+text = "RETRY"
+
 [node name="exit" type="TextureButton" parent="."]
 texture_filter = 1
 offset_left = 129.0
@@ -22,7 +30,15 @@ offset_right = 257.0
 offset_bottom = 200.0
 texture_normal = ExtResource("2_vcjmr")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="exit"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 12.0
+offset_right = 84.0
+offset_bottom = 35.0
+text = "EXIT"
+
+[node name="win_label" type="Label" parent="."]
 texture_filter = 1
 offset_left = 135.0
 offset_top = 56.0
