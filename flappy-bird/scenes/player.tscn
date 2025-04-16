@@ -1,18 +1,21 @@
 [gd_scene load_steps=4 format=3 uid="uid://wqd2b6rfqdo5"]
 
-[ext_resource type="Texture2D" uid="uid://crixuvf5ejnse" path="res://assets/player.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://c50rexuewp1pk" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://c47fm1yj71xjn" path="res://assets/player_toothless.png" id="2_g2els"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
-radius = 21.0238
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
+size = Vector2(75, 25)
 
 [node name="Player" type="CharacterBody2D"]
+motion_mode = 1
 script = ExtResource("1_g2els")
 
 [node name="character_sprite" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("1_3vyb7")
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("2_g2els")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_g2els")
+position = Vector2(-7.5, 5.5)
+shape = SubResource("RectangleShape2D_g2els")
 disabled = true

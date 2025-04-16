@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://ugj8efsjiffj"]
+
+[ext_resource type="Script" uid="uid://cmimhyblphmb6" path="res://scenes/flames.gd" id="1_1uo3d"]
+[ext_resource type="Texture2D" uid="uid://qbjvpbvwkeb0" path="res://assets/flames_glowing.png" id="1_q7rf5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1uo3d"]
+size = Vector2(77.3333, 236.667)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dusva"]
+size = Vector2(112, 360)
+
+[node name="Flames" type="StaticBody2D"]
+script = ExtResource("1_1uo3d")
+
+[node name="upper_collision" type="CollisionShape2D" parent="."]
+position = Vector2(3.99997, -267.5)
+rotation = -3.14159
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_1uo3d")
+
+[node name="lower_collision" type="CollisionShape2D" parent="."]
+position = Vector2(2, 266)
+shape = SubResource("RectangleShape2D_dusva")
+
+[node name="upper_sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -252)
+rotation = -3.14159
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_q7rf5")
+
+[node name="lower_sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1, 253)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_q7rf5")
