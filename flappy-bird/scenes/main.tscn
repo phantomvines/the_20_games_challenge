@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cjfo1trdg8s4o"]
+[gd_scene load_steps=5 format=3 uid="uid://cjfo1trdg8s4o"]
 
 [ext_resource type="Texture2D" uid="uid://h7nphigfwfpe" path="res://assets/background.png" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://dq8etrs3tfnjp" path="res://scripts/main.gd" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://wqd2b6rfqdo5" path="res://scenes/player.tscn" id="2_0wfyh"]
-[ext_resource type="PackedScene" uid="uid://ugj8efsjiffj" path="res://scenes/flames.tscn" id="4_jyhfs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0wfyh"]
 size = Vector2(1152, 20)
@@ -24,6 +23,3 @@ position = Vector2(154, 641)
 [node name="floor_collision_shape" type="CollisionShape2D" parent="Floor" groups=["floor"]]
 position = Vector2(420, -4)
 shape = SubResource("RectangleShape2D_0wfyh")
-
-[node name="RigidBody2D" parent="." instance=ExtResource("4_jyhfs")]
-position = Vector2(582, 283)
