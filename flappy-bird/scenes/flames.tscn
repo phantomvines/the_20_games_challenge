@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://ugj8efsjiffj"]
+[gd_scene load_steps=6 format=3 uid="uid://ugj8efsjiffj"]
 
 [ext_resource type="Script" uid="uid://cmimhyblphmb6" path="res://scenes/flames.gd" id="1_1uo3d"]
 [ext_resource type="Texture2D" uid="uid://qbjvpbvwkeb0" path="res://assets/flames_glowing.png" id="1_q7rf5"]
@@ -8,6 +8,9 @@ size = Vector2(77.3333, 236.667)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dusva"]
 size = Vector2(112, 360)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ujg77"]
+size = Vector2(26, 165.5)
 
 [node name="Flames" type="StaticBody2D"]
 script = ExtResource("1_1uo3d")
@@ -34,3 +37,11 @@ texture_filter = 1
 position = Vector2(1, 253)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_q7rf5")
+
+[node name="point_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="point_area"]
+position = Vector2(80, -1.75)
+shape = SubResource("RectangleShape2D_ujg77")
+
+[connection signal="area_entered" from="point_area" to="." method="_on_point_area_area_entered"]
