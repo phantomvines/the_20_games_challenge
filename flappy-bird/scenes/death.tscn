@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://dshlcfp66efab"]
+
+[ext_resource type="Texture2D" uid="uid://h7nphigfwfpe" path="res://assets/background.png" id="1_0hhgj"]
+[ext_resource type="Script" uid="uid://bsmoikjtum6tn" path="res://scripts/death.gd" id="1_w8wr1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tjai8"]
+font_size = 60
+
+[sub_resource type="LabelSettings" id="LabelSettings_q1r8t"]
+font_size = 32
+
+[node name="death" type="Node2D"]
+script = ExtResource("1_w8wr1")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+texture = ExtResource("1_0hhgj")
+
+[node name="retry" type="Button" parent="."]
+offset_left = 382.0
+offset_top = 227.0
+offset_right = 724.0
+offset_bottom = 296.0
+text = "RESTART"
+
+[node name="exit" type="Button" parent="."]
+offset_left = 383.0
+offset_top = 333.0
+offset_right = 725.0
+offset_bottom = 401.0
+text = "EXIT"
+
+[node name="you_died" type="Label" parent="."]
+offset_left = 415.0
+offset_top = 38.0
+offset_right = 697.0
+offset_bottom = 121.0
+text = "YOU DIED"
+label_settings = SubResource("LabelSettings_tjai8")
+
+[node name="score_label" type="Label" parent="."]
+offset_left = 491.0
+offset_top = 147.0
+offset_right = 612.0
+offset_bottom = 192.0
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_q1r8t")
+
+[connection signal="pressed" from="retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]

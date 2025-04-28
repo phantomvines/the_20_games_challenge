@@ -23,9 +23,10 @@ func _physics_process(delta: float) -> void:
 	
 	# maybe temporary before i find a better solution
 	# if player hits ground, teleport up
-	if position.y > 600:
-		position = Vector2(160, 300) # currently just teleport back to start
-		movement_dir_speed = Vector2.ZERO
+	if position.y > 590:
+		#position = Vector2(160, 300) # currently just teleport back to start
+		#movement_dir_speed = Vector2.ZERO
+		get_tree().change_scene_to_file("res://scenes/death.tscn")
 	
 	# player cant go above the screen, gets clamped below
 	if position.y < 30:
@@ -36,7 +37,7 @@ func _physics_process(delta: float) -> void:
 	 # Adjust rotation based on vertical velocity
 	var target_rotation = lerp(max_up, max_down, clamp(velocity.y / 500.0, 0.0, 1.0))
 	rotation = lerp_angle(rotation, target_rotation, rotation_speed * delta)
-	print(rotation)
+	#print(rotation)
 
 func flap() -> void:
 	# change direction to up and add velocity

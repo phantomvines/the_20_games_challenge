@@ -16,5 +16,5 @@ func _on_point_area_body_entered(_body: Node2D) -> void:
 # if collided with pipe, death
 func _on_pipe_collision_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		print("collision") #TODO Call death scene
+		get_tree().change_scene_to_file("res://scenes/death.tscn")
 	pass # Replace with function body.
