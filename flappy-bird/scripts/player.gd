@@ -6,6 +6,11 @@ var movement_dir_speed = Vector2.ZERO # basically velocity that gets updated
 # for Player Movement: Flapping
 @export var flap_force = -300
 
+# variables for tilting of sprite
+var max_down = deg_to_rad(90)
+var max_up = deg_to_rad(-20)
+@export var rotation_speed = 5
+
 func _physics_process(delta: float) -> void:
 	# if space is pressed to flap
 	if Input.is_action_just_pressed("space"):
@@ -27,6 +32,11 @@ func _physics_process(delta: float) -> void:
 		position.y = 30
 	
 	move_and_slide()
+	
+	 # Adjust rotation based on vertical velocity
+	var target_rotation = lerp(max_up, max_down, clamp(velocity.y / 500.0, 0.0, 1.0))
+	rotation = lerp_angle(rotation, target_rotation, rotation_speed * delta)
+	print(rotation)
 
 func flap() -> void:
 	# change direction to up and add velocity
