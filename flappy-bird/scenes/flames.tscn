@@ -36,6 +36,7 @@ position = Vector2(80, -1.75)
 shape = SubResource("RectangleShape2D_ujg77")
 
 [node name="Sprite2D" type="Sprite2D" parent="PointArea"]
+visible = false
 texture = ExtResource("3_dusva")
 
 [node name="pipe_collision" type="Area2D" parent="."]

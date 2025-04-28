@@ -11,6 +11,9 @@ func _process(delta):
 		spawn_timer = 0
 		spawn_pipe()
 		
+	# set point label
+	$Label.text = "Points: " + str(Scenemanager.points)
+		
 func spawn_pipe():
 	var flame_instance = flames.instantiate()
 	add_child(flame_instance)

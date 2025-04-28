@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjfo1trdg8s4o"]
+[gd_scene load_steps=6 format=3 uid="uid://cjfo1trdg8s4o"]
 
 [ext_resource type="Texture2D" uid="uid://h7nphigfwfpe" path="res://assets/background.png" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://dq8etrs3tfnjp" path="res://scripts/main.gd" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://wqd2b6rfqdo5" path="res://scenes/player.tscn" id="2_0wfyh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_sugp2"]
+font_size = 32
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0wfyh"]
 size = Vector2(1152, 20)
@@ -16,6 +19,15 @@ texture = ExtResource("1_o5qli")
 
 [node name="Player" parent="." instance=ExtResource("2_0wfyh")]
 position = Vector2(160, 340)
+
+[node name="Label" type="Label" parent="."]
+top_level = true
+offset_left = 22.0
+offset_top = 13.0
+offset_right = 154.0
+offset_bottom = 58.0
+text = "Points: 0"
+label_settings = SubResource("LabelSettings_sugp2")
 
 [node name="Floor" type="StaticBody2D" parent="." groups=["floor"]]
 position = Vector2(154, 641)
