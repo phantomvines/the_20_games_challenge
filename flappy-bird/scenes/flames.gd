@@ -8,20 +8,12 @@ func _process(delta: float) -> void:
 	if position.x < -60:
 		queue_free()
 
-#func _ready() -> void:
-#	$PointArea.body_entered.connect(_on_point_area_body_entered)
-
-
-#func _on_point_area_area_entered(area: Area2D) -> void:
-#	print("point")
-#	pass # Replace with function body.
-
-
 func _on_point_area_body_entered(_body: Node2D) -> void:
 	Scenemanager.points += 1
 	pass # Replace with function body.
 
 
 func _on_pipe_collision_body_entered(body: Node2D) -> void:
-	
+	if body.is_in_group("Player"):
+		print("collision") #TODO Call death scene
 	pass # Replace with function body.
