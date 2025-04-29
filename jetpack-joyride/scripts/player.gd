@@ -22,8 +22,7 @@ func _physics_process(delta: float) -> void:
 	
 	velocity = movement_dir_speed
 	
-	print(position)
-	# player cant go above the screen, gets clamped below
+	# player speed does not gets changed when on floor or ceiling, does not get stuck
 	if position.y < 40 or position.y > 593:
 		movement_dir_speed = Vector2.ZERO
 	
