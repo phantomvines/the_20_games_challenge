@@ -15,6 +15,10 @@ run/main_scene="uid://85nm76s22f7a"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Scenemanager="*res://Scenemanager.gd"
+
 [input]
 
 space={

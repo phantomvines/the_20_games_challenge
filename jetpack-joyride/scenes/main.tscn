@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://85nm76s22f7a"]
+[gd_scene load_steps=6 format=3 uid="uid://85nm76s22f7a"]
 
 [ext_resource type="Texture2D" uid="uid://3yyeljux22di" path="res://assets/background.png" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://cp0kjr24gyo4m" path="res://scripts/main.gd" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://ct104dmvnv46v" path="res://scenes/player.tscn" id="2_0wfyh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0wfyh"]
@@ -10,6 +11,7 @@ size = Vector2(173, 35)
 size = Vector2(199, 20)
 
 [node name="main" type="Node2D"]
+script = ExtResource("1_sugp2")
 
 [node name="background" type="Sprite2D" parent="."]
 position = Vector2(576, 324)
