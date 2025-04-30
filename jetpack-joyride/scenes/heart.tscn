@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://cad8h7cwvir83"]
+
+[ext_resource type="Texture2D" uid="uid://cuhwi6g4erwtx" path="res://assets/heart.png" id="1_v30as"]
+[ext_resource type="Script" uid="uid://bd776umr7hxv3" path="res://scripts/heart.gd" id="1_ycbwg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ycbwg"]
+radius = 6.08276
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_krgnv"]
+radius = 6.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ycbwg"]
+size = Vector2(12.7782, 13.1213)
+
+[node name="heart" type="Node2D"]
+script = ExtResource("1_ycbwg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_v30as")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-6, -1)
+shape = SubResource("CircleShape2D_ycbwg")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(6, -1)
+shape = SubResource("CircleShape2D_krgnv")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.12132, 4.15685)
+rotation = 0.785398
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_ycbwg")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,13 +1,8 @@
 extends Node2D
 
-var damage = 10
+# amount the heart heals when collected
+var heal_amount = 30
 var speed = 300
-
-func _ready() -> void:
-	# every projectile gets a random speed
-	speed = randf_range(200, 400)
-	# slower projectiles do more damage
-	damage = round(15-(speed/100 * 2))
 
 func _physics_process(delta: float) -> void:
 	position.x -= speed*delta
@@ -18,12 +13,11 @@ func _physics_process(delta: float) -> void:
 # if player gets hit by Projectile
 # TODO maybe check if body that entered is player
 func _on_area_2d_body_entered(body: Node2D) -> void:
+	# heal player 
 	if body.is_in_group("player"):
 		# subtract health from player
-		Scenemanager.health -= damage
-	
-		# if health hits zero, death
-		if Scenemanager.health <= 0:
-			print("death")
+		Scenemanager.health += heal_amount
+		# health caps at 100
+		Scenemanager.health = min(Scenemanager.health, 200)
 	
 	queue_free()

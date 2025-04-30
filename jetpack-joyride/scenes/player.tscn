@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
 radius = 29.0172
 
-[node name="player" type="CharacterBody2D"]
+[node name="player" type="CharacterBody2D" groups=["player"]]
 texture_filter = 1
 script = ExtResource("1_g2els")
 
