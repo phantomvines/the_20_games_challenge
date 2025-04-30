@@ -6,6 +6,9 @@ extends Node2D
 @export var projectile_frequency = 0.05
 
 func _physics_process(delta: float) -> void:
+	# update health label
+	$health_counter.text = "Health: " + str(Scenemanager.health)
+	
 	# get random float between 0 and 1
 	var rand = randf()
 	
