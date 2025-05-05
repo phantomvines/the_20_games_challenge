@@ -18,6 +18,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		# subtract health from player
 		Scenemanager.health += heal_amount
 		# health caps at 100
-		Scenemanager.health = min(Scenemanager.health, 200)
+		Scenemanager.health = min(Scenemanager.health, 100)
 	
 	queue_free()

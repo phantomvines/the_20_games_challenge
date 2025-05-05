@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://85nm76s22f7a"]
+[gd_scene load_steps=9 format=3 uid="uid://85nm76s22f7a"]
 
 [ext_resource type="Texture2D" uid="uid://3yyeljux22di" path="res://assets/background.png" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cp0kjr24gyo4m" path="res://scripts/main.gd" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://ct104dmvnv46v" path="res://scenes/player.tscn" id="2_0wfyh"]
+[ext_resource type="Texture2D" uid="uid://m40a3vxgfqbu" path="res://assets/health_bar_empty.png" id="4_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://dvaijdcjibvs1" path="res://assets/health_bar_full.png" id="5_tefeu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0wfyh"]
 size = Vector2(173, 35)
@@ -36,9 +38,20 @@ position = Vector2(152, 0)
 shape = SubResource("RectangleShape2D_sugp2")
 
 [node name="health_counter" type="Label" parent="."]
+visible = false
 offset_left = 905.0
 offset_top = 13.0
 offset_right = 945.0
 offset_bottom = 36.0
 text = "Health: 100"
 label_settings = SubResource("LabelSettings_sugp2")
+
+[node name="health_bar" type="TextureProgressBar" parent="."]
+top_level = true
+texture_filter = 1
+offset_left = 885.0
+offset_top = 14.0
+offset_right = 1141.0
+offset_bottom = 54.0
+texture_under = ExtResource("4_tbgi4")
+texture_progress = ExtResource("5_tefeu")

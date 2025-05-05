@@ -7,9 +7,17 @@ extends Node2D
 @export var projectile_frequency = 0.05
 @export var heart_frequency = 0.01
 
+# speed of health reduction
+var health_reduc_speed = 0.5
+var curr_health = Scenemanager.health
+
 func _physics_process(delta: float) -> void:
 	# update health label
-	$health_counter.text = "Health: " + str(Scenemanager.health)
+	if curr_health > Scenemanager.health:
+		curr_health -= health_reduc_speed
+	elif curr_health < Scenemanager.health: 
+		curr_health += health_reduc_speed * 2
+	$health_bar.value = curr_health
 	
 	# get random float between 0 and 1
 	var rand = randf()
