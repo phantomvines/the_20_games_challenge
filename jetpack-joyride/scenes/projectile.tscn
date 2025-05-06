@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://h1ouhrcrtk1n"]
+[gd_scene load_steps=13 format=3 uid="uid://h1ouhrcrtk1n"]
 
 [ext_resource type="Texture2D" uid="uid://b0xmr00dq2tdl" path="res://assets/projectile.png" id="1_c8fcr"]
 [ext_resource type="Script" uid="uid://chlmi06n87nxh" path="res://scripts/projectile.gd" id="1_q3m7n"]
 [ext_resource type="Texture2D" uid="uid://bvvxacdjb36g6" path="res://assets/projectile-animated-Sheet.png" id="3_softn"]
+[ext_resource type="Texture2D" uid="uid://c50ko35q4phs7" path="res://assets/projectile_paticle.png" id="4_6q2a6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q3m7n"]
 
@@ -79,5 +80,17 @@ texture_filter = 1
 position = Vector2(16, 0)
 sprite_frames = SubResource("SpriteFrames_ejmht")
 animation = &"flying"
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+scale = Vector2(0.7, 0.7)
+amount = 50
+texture = ExtResource("4_6q2a6")
+lifetime = 0.5
+emission_shape = 1
+emission_sphere_radius = 10.05
+spread = 11.66
+gravity = Vector2(0, 0)
+initial_velocity_max = 99.75
+scale_amount_min = 0.3
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
