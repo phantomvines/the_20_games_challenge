@@ -1,6 +1,6 @@
 extends Node2D
 
-var damage = 1
+var damage = 0.2
 var speed = 300
 
 var player_in_area = false

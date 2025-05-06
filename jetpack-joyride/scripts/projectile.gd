@@ -8,6 +8,8 @@ func _ready() -> void:
 	speed = randf_range(200, 400)
 	# slower projectiles do more damage
 	damage = round(15-(speed/100 * 2))
+	
+	$AnimatedSprite2D.play("flying")
 
 func _physics_process(delta: float) -> void:
 	position.x -= speed*delta
