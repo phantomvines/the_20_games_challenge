@@ -24,6 +24,9 @@ func _physics_process(delta: float) -> void:
 		curr_health += health_reduc_speed * 2
 	$health_bar.value = curr_health
 	
+	# update coins label
+	$coin_counter/Label.text = str(Scenemanager.score)
+	
 	# get random float between 0 and 1
 	var rand = randf()
 	

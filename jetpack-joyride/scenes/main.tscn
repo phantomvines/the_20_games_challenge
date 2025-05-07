@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://85nm76s22f7a"]
+[gd_scene load_steps=10 format=3 uid="uid://85nm76s22f7a"]
 
 [ext_resource type="Texture2D" uid="uid://3yyeljux22di" path="res://assets/background.png" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cp0kjr24gyo4m" path="res://scripts/main.gd" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://ct104dmvnv46v" path="res://scenes/player.tscn" id="2_0wfyh"]
 [ext_resource type="Texture2D" uid="uid://m40a3vxgfqbu" path="res://assets/health_bar_empty.png" id="4_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://dvaijdcjibvs1" path="res://assets/health_bar_full.png" id="5_tefeu"]
+[ext_resource type="Texture2D" uid="uid://j138wya1ok83" path="res://assets/coin.png" id="6_tefeu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0wfyh"]
 size = Vector2(173, 35)
@@ -55,3 +56,19 @@ offset_right = 1141.0
 offset_bottom = 54.0
 texture_under = ExtResource("4_tbgi4")
 texture_progress = ExtResource("5_tefeu")
+
+[node name="coin_counter" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="coin_counter"]
+top_level = true
+texture_filter = 1
+position = Vector2(1054, 68)
+texture = ExtResource("6_tefeu")
+
+[node name="Label" type="Label" parent="coin_counter"]
+texture_filter = 1
+offset_left = 1075.0
+offset_top = 56.0
+offset_right = 1115.0
+offset_bottom = 79.0
+text = "0"
