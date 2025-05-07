@@ -21,7 +21,6 @@ func _physics_process(delta: float) -> void:
 	if player_in_area:
 		Scenemanager.health -= damage
 		Scenemanager.health = max(Scenemanager.health, 0)
-	print(player_in_area)
 
 
 func _on_body_entered(body: Node2D) -> void:

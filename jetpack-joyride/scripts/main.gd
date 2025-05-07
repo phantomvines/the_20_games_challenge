@@ -4,10 +4,12 @@ extends Node2D
 @export var projectile: PackedScene = preload("res://scenes/projectile.tscn")
 @export var heart: PackedScene = preload("res://scenes/heart.tscn")
 @export var damage_area: PackedScene = preload("res://scenes/damage_area.tscn")
+@export var coin: PackedScene = preload("res://scenes/coin.tscn")
 # spawning frequencies
 @export var projectile_frequency = 0.03
 @export var heart_frequency = 0.005
 @export var damage_area_frequency = 0.01
+@export var coin_frequency = 0.01
 
 
 # speed of health reduction
@@ -32,11 +34,16 @@ func _physics_process(delta: float) -> void:
 	# spawn hearts
 	if rand <= heart_frequency:
 		spawn_heart()
-		
+	
+	# spawn damage area
 	if rand < damage_area_frequency:
 		spawn_damage_area()
+	
+	# spawn coins
+	if rand < coin_frequency:
+		spawn_coin()
 
-
+# Spawn functions
 func spawn_projectile() -> void:
 	var projectile_instance = projectile.instantiate()
 	add_child(projectile_instance)
@@ -51,3 +58,8 @@ func spawn_damage_area() -> void:
 	var damage_area_instance = damage_area.instantiate()
 	add_child(damage_area_instance)
 	damage_area_instance.position = Vector2(1200, randf_range(100, 530))
+	
+func spawn_coin() -> void:
+	var coin_instance = coin.instantiate()
+	add_child(coin_instance)
+	coin_instance.position = Vector2(1200, randf_range(30, 600))
