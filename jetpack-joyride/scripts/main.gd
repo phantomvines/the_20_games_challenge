@@ -20,8 +20,12 @@ func _physics_process(delta: float) -> void:
 	# update health label
 	if curr_health > Scenemanager.health:
 		curr_health -= health_reduc_speed
-	elif curr_health < Scenemanager.health: 
-		curr_health += health_reduc_speed * 2
+	#elif curr_health < Scenemanager.health: 
+		#curr_health += health_reduc_speed * 2
+	#elif abs(curr_health-Scenemanager.health) < 1:
+		#curr_health = Scenemanager.health
+	if curr_health < Scenemanager.health:
+		curr_health = Scenemanager.health
 	$health_bar.value = curr_health
 	
 	# update coins label
