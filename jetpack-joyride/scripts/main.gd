@@ -6,15 +6,22 @@ extends Node2D
 @export var damage_area: PackedScene = preload("res://scenes/damage_area.tscn")
 @export var coin: PackedScene = preload("res://scenes/coin.tscn")
 # spawning frequencies
-@export var projectile_frequency = 0.03
+@export var projectile_frequency = 0.05
 @export var heart_frequency = 0.005
-@export var damage_area_frequency = 0.01
+@export var damage_area_frequency = 0.03
 @export var coin_frequency = 0.01
 
+var segment_change_frequency = 0.001
 
 # speed of health reduction
 var health_reduc_speed = 0.5
 var curr_health = Scenemanager.health
+
+# Different gameplay segments
+var projectiles = false
+var areas = false
+var segments = ["nothing", "projectiles", "areas"]
+var last_segment = "nothing"
 
 func _physics_process(delta: float) -> void:
 	# update health label
@@ -34,8 +41,12 @@ func _physics_process(delta: float) -> void:
 	# get random float between 0 and 1
 	var rand = randf()
 	
+	# change scene
+	if rand <= segment_change_frequency:
+		change_segment()
+	
 	# spawn projectiles
-	if rand <= projectile_frequency:
+	if rand <= projectile_frequency and projectiles:
 		spawn_projectile()
 		
 	# spawn hearts
@@ -43,7 +54,7 @@ func _physics_process(delta: float) -> void:
 		spawn_heart()
 	
 	# spawn damage area
-	if rand < damage_area_frequency:
+	if rand < damage_area_frequency and areas:
 		spawn_damage_area()
 	
 	# spawn coins
@@ -53,6 +64,29 @@ func _physics_process(delta: float) -> void:
 	# check if player is dead
 	if Scenemanager.health <= 0:
 		get_tree().change_scene_to_file("res://scenes/death.tscn")
+
+func change_segment():
+	# get random segment
+	var segment = segments[randi() % segments.size()]
+	print(segment)
+	
+	# change bools for object spawning
+	if segment == "nothing":
+		areas = false
+		projectiles = false
+	elif segment == "projectiles":
+		areas = false
+		projectiles = true
+	elif segment == "areas":
+		areas = true
+		projectiles = false
+	
+	# do not repeat the last segment
+	if segment == last_segment:
+		change_segment()
+	else:
+		last_segment = segment
+	
 
 # Spawn functions
 func spawn_projectile() -> void:
