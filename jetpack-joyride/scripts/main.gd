@@ -45,6 +45,10 @@ func _physics_process(delta: float) -> void:
 	# spawn coins
 	if rand < coin_frequency:
 		spawn_coin()
+		
+	# check if player is dead
+	if Scenemanager.health <= 0:
+		get_tree().change_scene_to_file("res://scenes/death.tscn")
 
 # Spawn functions
 func spawn_projectile() -> void:
