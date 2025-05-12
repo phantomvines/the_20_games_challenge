@@ -5,6 +5,7 @@ var speed = 300
 func _ready() -> void:
 	# every projectile gets a random speed
 	speed = 200
+	$AnimatedSprite2D.play("default")
 
 func _physics_process(delta: float) -> void:
 	position.x -= speed*delta
