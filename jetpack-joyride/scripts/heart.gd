@@ -4,6 +4,9 @@ extends Node2D
 var heal_amount = 30
 var speed = 300
 
+func _ready() -> void:
+	$AnimatedSprite2D.play("default")
+
 func _physics_process(delta: float) -> void:
 	position.x -= speed*delta
 	

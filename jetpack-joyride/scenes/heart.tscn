@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cad8h7cwvir83"]
+[gd_scene load_steps=14 format=3 uid="uid://cad8h7cwvir83"]
 
 [ext_resource type="Texture2D" uid="uid://cuhwi6g4erwtx" path="res://assets/heart.png" id="1_v30as"]
 [ext_resource type="Script" uid="uid://bd776umr7hxv3" path="res://scripts/heart.gd" id="1_ycbwg"]
+[ext_resource type="Texture2D" uid="uid://cm6ro6ntb4txr" path="res://assets/heart_animated-Sheet.png" id="3_krgnv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ycbwg"]
 radius = 6.08276
@@ -12,11 +13,62 @@ radius = 6.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ycbwg"]
 size = Vector2(12.7782, 13.1213)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_txm48"]
+atlas = ExtResource("3_krgnv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8nnyc"]
+atlas = ExtResource("3_krgnv")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4mtg8"]
+atlas = ExtResource("3_krgnv")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u10h0"]
+atlas = ExtResource("3_krgnv")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oquu7"]
+atlas = ExtResource("3_krgnv")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0fb81"]
+atlas = ExtResource("3_krgnv")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uj202"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txm48")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8nnyc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4mtg8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u10h0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oquu7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0fb81")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="heart" type="Node2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_ycbwg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture_filter = 1
 texture = ExtResource("1_v30as")
 
@@ -34,5 +86,11 @@ shape = SubResource("CircleShape2D_krgnv")
 position = Vector2(-0.12132, 4.15685)
 rotation = 0.785398
 shape = SubResource("RectangleShape2D_ycbwg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+z_index = 5
+sprite_frames = SubResource("SpriteFrames_uj202")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
