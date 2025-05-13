@@ -9,7 +9,8 @@ func _ready() -> void:
 	# every area gets a speed
 	#speed = randf_range(200, 400)
 	# every area gets a random size
-	scale = scale*randf_range(0.5,2)
+	scale = scale*randf_range(0.8,1.4)
+	$AnimatedSprite2D.play("default")
 
 func _physics_process(delta: float) -> void:
 	position.x -= speed*delta
