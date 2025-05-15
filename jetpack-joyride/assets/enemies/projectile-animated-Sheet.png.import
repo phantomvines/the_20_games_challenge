@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cuhwi6g4erwtx"
-path="res://.godot/imported/heart.png-9a2fa56e49d8a002fed7c28ce07513e0.ctex"
+uid="uid://bvvxacdjb36g6"
+path="res://.godot/imported/projectile-animated-Sheet.png-e70e8918fcc6bf9b465a014c066be717.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/heart.png"
-dest_files=["res://.godot/imported/heart.png-9a2fa56e49d8a002fed7c28ce07513e0.ctex"]
+source_file="res://assets/enemies/projectile-animated-Sheet.png"
+dest_files=["res://.godot/imported/projectile-animated-Sheet.png-e70e8918fcc6bf9b465a014c066be717.ctex"]
 
 [params]
 

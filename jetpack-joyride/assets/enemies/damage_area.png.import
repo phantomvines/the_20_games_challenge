@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cm6ro6ntb4txr"
-path="res://.godot/imported/heart_animated-Sheet.png-06b393e99e4b094f6858c420b3778eb8.ctex"
+uid="uid://b14te7tmgqdkw"
+path="res://.godot/imported/damage_area.png-4f805415aa94ce16842b441d7ed53afc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/heart_animated-Sheet.png"
-dest_files=["res://.godot/imported/heart_animated-Sheet.png-06b393e99e4b094f6858c420b3778eb8.ctex"]
+source_file="res://assets/enemies/damage_area.png"
+dest_files=["res://.godot/imported/damage_area.png-4f805415aa94ce16842b441d7ed53afc.ctex"]
 
 [params]
 

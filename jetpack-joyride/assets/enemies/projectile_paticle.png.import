@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvaijdcjibvs1"
-path="res://.godot/imported/health_bar_full.png-f9b6dce9cc77b14fd88be3ad20659170.ctex"
+uid="uid://c50ko35q4phs7"
+path="res://.godot/imported/projectile_paticle.png-4ebde516c7935552c6c818083380b021.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/health_bar_full.png"
-dest_files=["res://.godot/imported/health_bar_full.png-f9b6dce9cc77b14fd88be3ad20659170.ctex"]
+source_file="res://assets/enemies/projectile_paticle.png"
+dest_files=["res://.godot/imported/projectile_paticle.png-4ebde516c7935552c6c818083380b021.ctex"]
 
 [params]
 

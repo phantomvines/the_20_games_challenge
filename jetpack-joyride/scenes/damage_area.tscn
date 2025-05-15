@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://e20ex4ex4ss7"]
 
 [ext_resource type="Script" uid="uid://x06jycw01ndu" path="res://scripts/damage_area.gd" id="1_5frsa"]
-[ext_resource type="Texture2D" uid="uid://b14te7tmgqdkw" path="res://assets/damage_area.png" id="2_fhj2k"]
-[ext_resource type="Texture2D" uid="uid://dnt2mp4ilb630" path="res://assets/damage_area_animated-Sheet.png" id="3_c2uvg"]
+[ext_resource type="Texture2D" uid="uid://b14te7tmgqdkw" path="res://assets/enemies/damage_area.png" id="2_fhj2k"]
+[ext_resource type="Texture2D" uid="uid://dnt2mp4ilb630" path="res://assets/enemies/damage_area_animated-Sheet.png" id="3_c2uvg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fhj2k"]
 size = Vector2(48, 111)

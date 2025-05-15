@@ -1,8 +1,8 @@
 [gd_scene load_steps=26 format=3 uid="uid://csanumx28lhau"]
 
 [ext_resource type="Script" uid="uid://dio5kp3ra1f0" path="res://scripts/coin.gd" id="1_i64fm"]
-[ext_resource type="Texture2D" uid="uid://j138wya1ok83" path="res://assets/coin.png" id="1_rwqht"]
-[ext_resource type="Texture2D" uid="uid://dnvem7vhwa61q" path="res://assets/coin_animated-Sheet.png" id="3_11l1o"]
+[ext_resource type="Texture2D" uid="uid://j138wya1ok83" path="res://assets/collectibles/coin.png" id="1_rwqht"]
+[ext_resource type="Texture2D" uid="uid://dnvem7vhwa61q" path="res://assets/collectibles/coin_animated-Sheet.png" id="3_11l1o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i64fm"]
 radius = 13.0

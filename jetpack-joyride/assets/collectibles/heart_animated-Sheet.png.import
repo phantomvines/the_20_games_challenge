@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c50ko35q4phs7"
-path="res://.godot/imported/projectile_paticle.png-bc3f4151b8d9a79f7fc9f5f656e3e42f.ctex"
+uid="uid://cm6ro6ntb4txr"
+path="res://.godot/imported/heart_animated-Sheet.png-191698500de75bf7aadfea32d9e8835f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/projectile_paticle.png"
-dest_files=["res://.godot/imported/projectile_paticle.png-bc3f4151b8d9a79f7fc9f5f656e3e42f.ctex"]
+source_file="res://assets/collectibles/heart_animated-Sheet.png"
+dest_files=["res://.godot/imported/heart_animated-Sheet.png-191698500de75bf7aadfea32d9e8835f.ctex"]
 
 [params]
 

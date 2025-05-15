@@ -1,9 +1,9 @@
 [gd_scene load_steps=13 format=3 uid="uid://h1ouhrcrtk1n"]
 
-[ext_resource type="Texture2D" uid="uid://b0xmr00dq2tdl" path="res://assets/projectile.png" id="1_c8fcr"]
+[ext_resource type="Texture2D" uid="uid://b0xmr00dq2tdl" path="res://assets/enemies/projectile.png" id="1_c8fcr"]
 [ext_resource type="Script" uid="uid://chlmi06n87nxh" path="res://scripts/projectile.gd" id="1_q3m7n"]
-[ext_resource type="Texture2D" uid="uid://bvvxacdjb36g6" path="res://assets/projectile-animated-Sheet.png" id="3_softn"]
-[ext_resource type="Texture2D" uid="uid://c50ko35q4phs7" path="res://assets/projectile_paticle.png" id="4_6q2a6"]
+[ext_resource type="Texture2D" uid="uid://bvvxacdjb36g6" path="res://assets/enemies/projectile-animated-Sheet.png" id="3_softn"]
+[ext_resource type="Texture2D" uid="uid://c50ko35q4phs7" path="res://assets/enemies/projectile_paticle.png" id="4_6q2a6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q3m7n"]
 

@@ -1,8 +1,8 @@
 [gd_scene load_steps=14 format=3 uid="uid://cad8h7cwvir83"]
 
-[ext_resource type="Texture2D" uid="uid://cuhwi6g4erwtx" path="res://assets/heart.png" id="1_v30as"]
+[ext_resource type="Texture2D" uid="uid://cuhwi6g4erwtx" path="res://assets/collectibles/heart.png" id="1_v30as"]
 [ext_resource type="Script" uid="uid://bd776umr7hxv3" path="res://scripts/heart.gd" id="1_ycbwg"]
-[ext_resource type="Texture2D" uid="uid://cm6ro6ntb4txr" path="res://assets/heart_animated-Sheet.png" id="3_krgnv"]
+[ext_resource type="Texture2D" uid="uid://cm6ro6ntb4txr" path="res://assets/collectibles/heart_animated-Sheet.png" id="3_krgnv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ycbwg"]
 radius = 6.08276

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvvxacdjb36g6"
-path="res://.godot/imported/projectile-animated-Sheet.png-7106dd0532d328601db9499f78af9d9e.ctex"
+uid="uid://m40a3vxgfqbu"
+path="res://.godot/imported/health_bar_empty.png-8ab54e0d1de21817fad0175a7bffc825.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/projectile-animated-Sheet.png"
-dest_files=["res://.godot/imported/projectile-animated-Sheet.png-7106dd0532d328601db9499f78af9d9e.ctex"]
+source_file="res://assets/ui/health_bar_empty.png"
+dest_files=["res://.godot/imported/health_bar_empty.png-8ab54e0d1de21817fad0175a7bffc825.ctex"]
 
 [params]
 
