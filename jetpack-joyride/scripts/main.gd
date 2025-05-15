@@ -5,6 +5,7 @@ extends Node2D
 @export var heart: PackedScene = preload("res://scenes/heart.tscn")
 @export var damage_area: PackedScene = preload("res://scenes/damage_area.tscn")
 @export var coin: PackedScene = preload("res://scenes/coin.tscn")
+@export var shooting_enemy: PackedScene = preload("res://scenes/shooting_enemy.tscn")
 # spawning frequencies
 @export var projectile_frequency = 0.03
 @export var heart_frequency = 0.005
@@ -27,7 +28,14 @@ var areas = false
 var segments = ["nothing", "projectiles", "areas"]
 var last_segment = "nothing"
 
+var spawned = false
+
 func _physics_process(delta: float) -> void:
+	if not spawned:
+		# for development of shooting enemy
+		spawn_shooting_enemy()
+		spawned = true
+	
 	# update health label
 	if curr_health > Scenemanager.health:
 		curr_health -= health_reduc_speed
@@ -72,6 +80,7 @@ func _physics_process(delta: float) -> void:
 	# check if player is dead
 	if Scenemanager.health <= 0:
 		get_tree().change_scene_to_file("res://scenes/death.tscn")
+	
 
 func change_segment():
 	# get random segment
@@ -116,3 +125,8 @@ func spawn_coin() -> void:
 	var coin_instance = coin.instantiate()
 	add_child(coin_instance)
 	coin_instance.position = Vector2(1200, randf_range(30, 600))
+
+func spawn_shooting_enemy() -> void:
+	var shooting_enemy_instance = shooting_enemy.instantiate()
+	add_child(shooting_enemy_instance)
+	shooting_enemy_instance.position = Vector2(700,300)
