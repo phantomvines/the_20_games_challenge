@@ -11,6 +11,7 @@ extends Node2D
 @export var heart_frequency = 0.005
 @export var damage_area_frequency = 0.02
 @export var coin_frequency = 0.01
+@export var shooting_enemy_frequency = 0.008
 
 var segment_change_frequency = 0.001
 var difficulty_increase_frequency = 0.001
@@ -25,17 +26,11 @@ var curr_health = Scenemanager.health
 # Different gameplay segments
 var projectiles = false
 var areas = false
-var segments = ["nothing", "projectiles", "areas"]
-var last_segment = "nothing"
-
-var spawned = false
+var shooting_enemies = true
+var segments = ["nothing", "projectiles", "areas", "shooting enemies"]
+var last_segment = "shooting_enemies"
 
 func _physics_process(delta: float) -> void:
-	if not spawned:
-		# for development of shooting enemy
-		spawn_shooting_enemy()
-		spawned = true
-	
 	# update health label
 	if curr_health > Scenemanager.health:
 		curr_health -= health_reduc_speed
@@ -65,6 +60,10 @@ func _physics_process(delta: float) -> void:
 	if rand <= projectile_frequency+difficulty and projectiles:
 		spawn_projectile()
 		
+	# spawn shooting enemies
+	if rand <= shooting_enemy_frequency+difficulty and shooting_enemies:
+		spawn_shooting_enemy()
+		
 	# spawn hearts
 	if rand <= heart_frequency:
 		spawn_heart()
@@ -91,12 +90,19 @@ func change_segment():
 	if segment == "nothing":
 		areas = false
 		projectiles = false
+		shooting_enemies = false
 	elif segment == "projectiles":
 		areas = false
 		projectiles = true
+		shooting_enemies = false
 	elif segment == "areas":
 		areas = true
 		projectiles = false
+		shooting_enemies = false
+	elif segment == "shooting enemies":
+		areas = false
+		projectiles = false
+		shooting_enemies = true
 	
 	# do not repeat the last segment
 	if segment == last_segment:
@@ -129,4 +135,4 @@ func spawn_coin() -> void:
 func spawn_shooting_enemy() -> void:
 	var shooting_enemy_instance = shooting_enemy.instantiate()
 	add_child(shooting_enemy_instance)
-	shooting_enemy_instance.position = Vector2(700,300)
+	shooting_enemy_instance.position = Vector2(1200, randf_range(100, 530))

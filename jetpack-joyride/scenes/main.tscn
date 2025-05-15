@@ -23,9 +23,6 @@ script = ExtResource("1_sugp2")
 position = Vector2(576, 324)
 texture = ExtResource("1_o5qli")
 
-[node name="player" parent="." instance=ExtResource("2_0wfyh")]
-position = Vector2(142, 315)
-
 [node name="floor" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
@@ -56,6 +53,9 @@ offset_right = 1141.0
 offset_bottom = 54.0
 texture_under = ExtResource("4_tefeu")
 texture_progress = ExtResource("5_o6xl0")
+
+[node name="player" parent="." instance=ExtResource("2_0wfyh")]
+position = Vector2(142, 315)
 
 [node name="coin_counter" type="Node2D" parent="."]
 
