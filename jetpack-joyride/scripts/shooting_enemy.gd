@@ -26,6 +26,9 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	update_position(delta)
+	
+	if position.x < -10:
+		queue_free()
 
 # correct movement
 func update_position(delta: float) -> void:

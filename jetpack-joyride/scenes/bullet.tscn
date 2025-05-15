@@ -1,10 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://cip1334rv184m"]
+[gd_scene load_steps=4 format=3 uid="uid://cip1334rv184m"]
 
 [ext_resource type="Texture2D" uid="uid://8b30o18qc08c" path="res://assets/enemies/shooting_enemy/shooting_enemy_bullet.png" id="1_mkf8s"]
+[ext_resource type="Script" uid="uid://dvtsmpeiy40ew" path="res://scenes/bullet.gd" id="1_y25gk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y25gk"]
 
 [node name="bullet" type="Node2D"]
+script = ExtResource("1_y25gk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
