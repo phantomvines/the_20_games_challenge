@@ -8,6 +8,8 @@ var movement_dir_speed = Vector2.ZERO # basically velocity that gets updated
 # maximal upwards velocity
 var max_upwards_speed = -500
 
+# store if the color is shifted
+var cshifted = false
 
 func _physics_process(delta: float) -> void:
 	# if space is pressed, boost upwards

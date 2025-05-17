@@ -20,7 +20,7 @@ func _physics_process(delta: float) -> void:
 	
 	# if bullet is out of bounds, delete
 	if global_position.x < -20 or global_position.x > 1200 or global_position.y < -10 or global_position.y > 1000:
-		print(global_position)
+		#print(global_position)
 		queue_free()
 
 
