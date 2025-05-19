@@ -4,6 +4,7 @@ var speed = 300
 
 func _ready() -> void:
 	speed = 200
+	$AnimatedSprite2D.play("default")
 
 func _physics_process(delta: float) -> void:
 	position.x -= speed*delta
@@ -20,7 +21,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		$Timer.wait_time = 3
 		$Timer.start()
 	
-	$Sprite2D.visible = false
+	$AnimatedSprite2D.visible = false
 
 func _on_timer_timeout() -> void:
 	Scenemanager.invincible = false

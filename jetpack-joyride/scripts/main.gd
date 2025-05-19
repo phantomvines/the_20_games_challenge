@@ -35,7 +35,8 @@ var last_segment = "shooting_enemies"
 func _physics_process(delta: float) -> void:
 	# if invincible, do not allow health_changes
 	if Scenemanager.invincible:
-		Scenemanager.health = curr_health
+		if Scenemanager.health < curr_health:
+			Scenemanager.health = curr_health
 	
 	# update health label
 	if curr_health > Scenemanager.health:
