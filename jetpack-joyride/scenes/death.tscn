@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7y4spyukaat5"]
+[gd_scene load_steps=6 format=3 uid="uid://b7y4spyukaat5"]
 
 [ext_resource type="Script" uid="uid://gbsjy4l23ylf" path="res://scripts/death.gd" id="1_w8wr1"]
 [ext_resource type="Texture2D" uid="uid://3yyeljux22di" path="res://assets/background.png" id="2_tjai8"]
@@ -8,6 +8,9 @@ font_size = 64
 font_color = Color(1, 0.0392157, 0.172549, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_6up1m"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_w8wr1"]
 font_size = 32
 
 [node name="Death" type="Node2D"]
@@ -46,6 +49,14 @@ offset_right = 636.0
 offset_bottom = 224.0
 text = "SCORE: 0"
 label_settings = SubResource("LabelSettings_6up1m")
+
+[node name="highscore" type="Label" parent="."]
+offset_left = 456.0
+offset_top = 224.0
+offset_right = 674.0
+offset_bottom = 269.0
+text = "HIGHSCORE: 0"
+label_settings = SubResource("LabelSettings_w8wr1")
 
 [connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="retry" to="." method="_on_retry_pressed"]
