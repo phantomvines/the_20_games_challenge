@@ -12,9 +12,13 @@ var max_upwards_speed = -500
 var cshifted = false
 
 func _physics_process(delta: float) -> void:
+	
 	# if space is pressed, boost upwards
 	if Input.is_action_pressed("space"):
 		movement_dir_speed.y += boost_force*delta
+		$AnimatedSprite2D.play("boosting")
+	else:
+		$AnimatedSprite2D.play("falling")
 	
 	# add gravity to direction every frame -> player falling
 	movement_dir_speed.y += delta*gravity
