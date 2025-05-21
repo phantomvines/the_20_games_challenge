@@ -18,7 +18,10 @@ func _physics_process(delta: float) -> void:
 		movement_dir_speed.y += boost_force*delta
 		$AnimatedSprite2D.play("boosting")
 	else:
-		$AnimatedSprite2D.play("falling")
+		if position.y >= 593:
+			$AnimatedSprite2D.play("driving")
+		else:
+			$AnimatedSprite2D.play("falling")
 	
 	# add gravity to direction every frame -> player falling
 	movement_dir_speed.y += delta*gravity

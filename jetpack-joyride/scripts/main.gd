@@ -97,7 +97,7 @@ func _physics_process(delta: float) -> void:
 		spawn_invincibility_potion()
 	
 	# check if player is dead
-	if Scenemanager.health <= 0 and not Scenemanager.invincible:
+	if curr_health <= 0 and not Scenemanager.invincible:
 		get_tree().change_scene_to_file("res://scenes/death.tscn")
 	
 

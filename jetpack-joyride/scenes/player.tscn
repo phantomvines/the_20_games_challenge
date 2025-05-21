@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://ct104dmvnv46v"]
+[gd_scene load_steps=16 format=3 uid="uid://ct104dmvnv46v"]
 
 [ext_resource type="Script" uid="uid://bhhxhuwifcdjc" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://bteg7brea1rd5" path="res://assets/player/player_falling.png" id="2_g2els"]
 [ext_resource type="Texture2D" uid="uid://bigcnftt4k0vm" path="res://assets/player/player_boosting-Sheet.png" id="3_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://bd50xawh8ed6u" path="res://assets/player/player_driving-Sheet.png" id="4_dqkch"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
 radius = 29.0172
@@ -21,6 +22,22 @@ region = Rect2(128, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
 atlas = ExtResource("3_qhqgy")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur7pv"]
+atlas = ExtResource("4_dqkch")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4r1p"]
+atlas = ExtResource("4_dqkch")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2wvv"]
+atlas = ExtResource("4_dqkch")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3v2ag"]
+atlas = ExtResource("4_dqkch")
 region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
@@ -44,6 +61,23 @@ animations = [{
 }],
 "loop": true,
 "name": &"boosting",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ur7pv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4r1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2wvv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3v2ag")
+}],
+"loop": true,
+"name": &"driving",
 "speed": 5.0
 }, {
 "frames": [{
@@ -72,4 +106,4 @@ shape = SubResource("CircleShape2D_g2els")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.3, 1.3)
 sprite_frames = SubResource("SpriteFrames_ur7pv")
-animation = &"boosting"
+animation = &"driving"
