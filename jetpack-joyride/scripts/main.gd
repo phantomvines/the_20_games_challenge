@@ -32,6 +32,12 @@ var shooting_enemies = true
 var segments = ["nothing", "projectiles", "areas", "shooting enemies"]
 var last_segment = "shooting_enemies"
 
+# to store if game is paused
+var paused = false
+
+#func _ready() -> void:
+#	$pause_menu.pause_mode = Node.PAUSE_MODE_PROCESS
+
 func _physics_process(delta: float) -> void:
 	# if invincible, do not allow health_changes
 	if Scenemanager.invincible:
@@ -51,6 +57,9 @@ func _physics_process(delta: float) -> void:
 	
 	# update coins label
 	$coin_counter/Label.text = str(Scenemanager.score)
+	
+	# check if game should be paused
+	check_pause()
 	
 	# get random float between 0 and 1
 	var rand = randf()
@@ -92,6 +101,15 @@ func _physics_process(delta: float) -> void:
 		get_tree().change_scene_to_file("res://scenes/death.tscn")
 	
 
+# function to check if game should be paused/unpaused
+func check_pause() -> void:
+	if Input.is_action_just_pressed("pause"):
+		get_tree().paused = true
+		$pause_menu/pause_label.visible = true
+		$pause_menu/pause_button.visible = true
+		$pause_menu/pause_button.disabled = false
+
+# change segment to new one
 func change_segment():
 	# get random segment
 	var segment = segments[randi() % segments.size()]
@@ -121,6 +139,7 @@ func change_segment():
 	else:
 		last_segment = segment
 	
+
 
 # Spawn functions
 func spawn_projectile() -> void:
@@ -152,3 +171,10 @@ func spawn_shooting_enemy() -> void:
 	var shooting_enemy_instance = shooting_enemy.instantiate()
 	add_child(shooting_enemy_instance)
 	shooting_enemy_instance.position = Vector2(1200, randf_range(100, 530))
+
+
+func _on_pause_button_pressed() -> void:
+	get_tree().paused = false
+	$pause_menu/pause_label.visible = false
+	$pause_menu/pause_button.visible = false
+	$pause_menu/pause_button.disabled = true
