@@ -23,6 +23,8 @@ func _ready() -> void:
 	angle = Vector2(cos(angle_radians), sin(angle_radians)).normalized()
 	
 	angle.x = abs(angle.x)*-1
+	
+	$AnimatedSprite2D.play("default")
 
 
 	# randomize shooting frequency

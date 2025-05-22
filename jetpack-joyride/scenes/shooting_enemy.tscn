@@ -1,7 +1,44 @@
-[gd_scene load_steps=4 format=3 uid="uid://cftfvdm4jekmy"]
+[gd_scene load_steps=10 format=3 uid="uid://cftfvdm4jekmy"]
 
 [ext_resource type="Script" uid="uid://dlxhpodlrs6ic" path="res://scripts/shooting_enemy.gd" id="1_7tkxy"]
 [ext_resource type="Texture2D" uid="uid://bg41op3na0iwq" path="res://assets/enemies/shooting_enemy/shooting_enemy.png" id="1_v82wq"]
+[ext_resource type="Texture2D" uid="uid://lom88qa7bdv7" path="res://assets/enemies/shooting_enemy/shooting_enemy-Sheet.png" id="3_2di7f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2o11"]
+atlas = ExtResource("3_2di7f")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xlij"]
+atlas = ExtResource("3_2di7f")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nrfe"]
+atlas = ExtResource("3_2di7f")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cd1rl"]
+atlas = ExtResource("3_2di7f")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_24r0x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b2o11")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8xlij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4nrfe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cd1rl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7tkxy"]
 radius = 28.0
@@ -10,12 +47,19 @@ radius = 28.0
 script = ExtResource("1_7tkxy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture_filter = 1
 texture = ExtResource("1_v82wq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(1.2, 1.2)
+sprite_frames = SubResource("SpriteFrames_24r0x")
 
 [node name="collision_area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="collision_area"]
+position = Vector2(0, 8)
 shape = SubResource("CircleShape2D_7tkxy")
 
 [node name="shooting_point" type="Node2D" parent="."]

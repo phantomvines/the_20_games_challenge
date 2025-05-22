@@ -14,6 +14,8 @@ func _ready() -> void:
 	var player = get_tree().get_nodes_in_group("player")[0]
 	# get direction the player is in
 	angle = (player.global_position - global_position).normalized()
+	$Sprite2D.rotation = angle.angle()
+	$Sprite2D.rotation_degrees += 180
 
 func _physics_process(delta: float) -> void:
 	position += delta*speed*angle
