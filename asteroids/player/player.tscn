@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://cvbkruka8nrfq" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://diott4nqj5jy7" path="res://assets/player/player.png" id="2_g1dw6"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_yw30f"]
-radius = 12.0
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_rkbax"]
+points = PackedVector2Array(15, 0, -13, 13, -13, -13)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_rkbax")
@@ -15,4 +15,4 @@ rotation = 1.5708
 texture = ExtResource("2_g1dw6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_yw30f")
+shape = SubResource("ConvexPolygonShape2D_rkbax")

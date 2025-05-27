@@ -9,7 +9,7 @@ extends CharacterBody2D
 # starting vector and speed
 var dir = Vector2(0, 1)
 var speed = 0
-var rotation_speed = 1
+var rotation_speed = 2
 
 func _physics_process(delta: float) -> void:
 	# Rotate left/right
