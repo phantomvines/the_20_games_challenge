@@ -16,3 +16,5 @@ texture = ExtResource("2_g1dw6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("ConvexPolygonShape2D_rkbax")
+
+[node name="shooting_position" type="Node2D" parent="."]

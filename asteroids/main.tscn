@@ -18,6 +18,7 @@ distance = -2.0
 
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
 position = Vector2(187, 153)
+scale = Vector2(0.7, 0.7)
 max_rotation_speed = 5
 turn_force = 2
 

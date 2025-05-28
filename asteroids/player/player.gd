@@ -1,10 +1,11 @@
 extends CharacterBody2D
 
+@export var bullet: PackedScene = preload("res://player/bullet.tscn")
+
 @export var max_speed = 15000
 @export var boost_force = 10000
 @export var max_rotation_speed = 2
 @export var turn_force = 1
-
 
 # starting vector and speed
 var dir = Vector2(0, 1)
@@ -15,7 +16,6 @@ func _physics_process(delta: float) -> void:
 	# Rotate left/right
 	if Input.is_action_pressed("left"):
 		dir = dir.rotated(-rotation_speed * delta)
-		print("left")
 	elif Input.is_action_pressed("right"):
 		dir = dir.rotated(rotation_speed * delta)
 	
@@ -27,15 +27,18 @@ func _physics_process(delta: float) -> void:
 		speed -= boost_force*delta
 		speed = max(speed, 0)
 	
-	# logic for rotating
-#	if Input.is_action_pressed("left"):
-#		dir.angle()
-
-	
-	print(dir)
+	# logic for shooting
+	if Input.is_action_pressed("shoot"):
+		shoot()
 	
 	velocity = dir*speed*delta
 	$Sprite2D.rotation = dir.angle()
 	$Sprite2D.rotation_degrees += 90
 	
 	move_and_slide()
+
+func shoot() -> void:
+	var bullet_instance = bullet.instantiate()
+	add_child(bullet_instance)
+	bullet_instance.position = $shooting_position.position
+	bullet_instance.dir = dir
