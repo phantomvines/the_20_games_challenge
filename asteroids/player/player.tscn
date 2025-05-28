@@ -18,3 +18,9 @@ texture = ExtResource("2_g1dw6")
 shape = SubResource("ConvexPolygonShape2D_rkbax")
 
 [node name="shooting_position" type="Node2D" parent="."]
+
+[node name="shooting_cooldown" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="shooting_cooldown" to="." method="_on_shooting_cooldown_timeout"]

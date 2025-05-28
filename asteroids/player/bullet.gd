@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var speed = 1000
+@export var speed = 300
 
 # initial defalut vector
 var dir = Vector2(1,0)

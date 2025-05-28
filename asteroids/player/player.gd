@@ -12,6 +12,9 @@ var dir = Vector2(0, 1)
 var speed = 0
 var rotation_speed = 2
 
+# for shooting cooldown checking
+var s_cd = false
+
 func _physics_process(delta: float) -> void:
 	# Rotate left/right
 	if Input.is_action_pressed("left"):
@@ -28,8 +31,10 @@ func _physics_process(delta: float) -> void:
 		speed = max(speed, 0)
 	
 	# logic for shooting
-	if Input.is_action_pressed("shoot"):
+	if Input.is_action_pressed("shoot") and not s_cd:
 		shoot()
+		s_cd = true
+		$shooting_cooldown.start()
 	
 	velocity = dir*speed*delta
 	$Sprite2D.rotation = dir.angle()
@@ -42,3 +47,7 @@ func shoot() -> void:
 	add_child(bullet_instance)
 	bullet_instance.position = $shooting_position.position
 	bullet_instance.dir = dir
+
+
+func _on_shooting_cooldown_timeout() -> void:
+	s_cd = false
