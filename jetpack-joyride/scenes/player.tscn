@@ -1,9 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://ct104dmvnv46v"]
+[gd_scene load_steps=28 format=3 uid="uid://ct104dmvnv46v"]
 
 [ext_resource type="Script" uid="uid://bhhxhuwifcdjc" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://bteg7brea1rd5" path="res://assets/player/player_falling.png" id="2_g2els"]
 [ext_resource type="Texture2D" uid="uid://bigcnftt4k0vm" path="res://assets/player/player_boosting-Sheet.png" id="3_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://bd50xawh8ed6u" path="res://assets/player/player_driving-Sheet.png" id="4_dqkch"]
+[ext_resource type="Texture2D" uid="uid://d3n16gkwnvw7q" path="res://assets/player/player_boosting_invincible-Sheet.png" id="4_fjrip"]
+[ext_resource type="Texture2D" uid="uid://blxmu8hy7uq48" path="res://assets/player/player_driving_invincible-Sheet.png" id="6_smehm"]
+[ext_resource type="Texture2D" uid="uid://cuki2l2cyr0tr" path="res://assets/player/player_falling_invincible.png" id="7_ur7pv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
 radius = 29.0172
@@ -24,6 +27,22 @@ region = Rect2(128, 0, 64, 64)
 atlas = ExtResource("3_qhqgy")
 region = Rect2(192, 0, 64, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jej6c"]
+atlas = ExtResource("4_fjrip")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1ej7"]
+atlas = ExtResource("4_fjrip")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oprun"]
+atlas = ExtResource("4_fjrip")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8ls1"]
+atlas = ExtResource("4_fjrip")
+region = Rect2(192, 0, 64, 64)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ur7pv"]
 atlas = ExtResource("4_dqkch")
 region = Rect2(0, 0, 64, 64)
@@ -40,8 +59,28 @@ region = Rect2(128, 0, 64, 64)
 atlas = ExtResource("4_dqkch")
 region = Rect2(192, 0, 64, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfm1y"]
+atlas = ExtResource("6_smehm")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fulsm"]
+atlas = ExtResource("6_smehm")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4r5pv"]
+atlas = ExtResource("6_smehm")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60mlk"]
+atlas = ExtResource("6_smehm")
+region = Rect2(192, 0, 64, 64)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
 atlas = ExtResource("2_g2els")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4ail"]
+atlas = ExtResource("7_ur7pv")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ur7pv"]
@@ -65,6 +104,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_jej6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1ej7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oprun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8ls1")
+}],
+"loop": true,
+"name": &"boosting_invincible",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ur7pv")
 }, {
 "duration": 1.0,
@@ -82,10 +138,35 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_qfm1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fulsm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4r5pv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60mlk")
+}],
+"loop": true,
+"name": &"driving_invincible",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_smehm")
 }],
 "loop": true,
 "name": &"falling",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4ail")
+}],
+"loop": true,
+"name": &"falling_invincible",
 "speed": 5.0
 }]
 
@@ -106,4 +187,4 @@ shape = SubResource("CircleShape2D_g2els")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.3, 1.3)
 sprite_frames = SubResource("SpriteFrames_ur7pv")
-animation = &"driving"
+animation = &"boosting_invincible"

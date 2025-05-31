@@ -16,12 +16,21 @@ func _physics_process(delta: float) -> void:
 	# if space is pressed, boost upwards
 	if Input.is_action_pressed("space"):
 		movement_dir_speed.y += boost_force*delta
-		$AnimatedSprite2D.play("boosting")
+		if Scenemanager.invincible:
+			$AnimatedSprite2D.play("boosting_invincible")
+		else:
+			$AnimatedSprite2D.play("boosting")
 	else:
 		if position.y >= 593:
-			$AnimatedSprite2D.play("driving")
+			if Scenemanager.invincible:
+				$AnimatedSprite2D.play("driving_invincible")
+			else:
+				$AnimatedSprite2D.play("driving")
 		else:
-			$AnimatedSprite2D.play("falling")
+			if Scenemanager.invincible:
+				$AnimatedSprite2D.play("falling_invincible")
+			else:
+				$AnimatedSprite2D.play("falling")
 	
 	# add gravity to direction every frame -> player falling
 	movement_dir_speed.y += delta*gravity
