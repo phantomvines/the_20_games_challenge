@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://ygp7dqu3fe8p"]
+[gd_scene load_steps=7 format=3 uid="uid://ygp7dqu3fe8p"]
 
 [ext_resource type="PackedScene" uid="uid://rmb8ngk406go" path="res://player/player.tscn" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://br6u2l5rtoco6" path="res://assets/asteroids/small_asteroid.png" id="2_0xm2m"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ig7tw"]
 
@@ -42,3 +43,7 @@ shape = SubResource("WorldBoundaryShape2D_h2yge")
 position = Vector2(401, 138)
 rotation = 4.71239
 shape = SubResource("WorldBoundaryShape2D_1bvp3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(89, 66)
+texture = ExtResource("2_0xm2m")
