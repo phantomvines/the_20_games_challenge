@@ -15,11 +15,20 @@ run/main_scene="uid://ygp7dqu3fe8p"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Scenemanager="*res://Scenemanager.gd"
+
 [display]
 
 window/size/viewport_width=400
 window/size/viewport_height=300
 window/stretch/mode="viewport"
+
+[global_group]
+
+player=""
+player_bullet=""
 
 [input]
 

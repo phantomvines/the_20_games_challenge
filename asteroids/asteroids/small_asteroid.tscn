@@ -1,11 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://diii1ph3fwaxk"]
+[gd_scene load_steps=5 format=3 uid="uid://diii1ph3fwaxk"]
 
+[ext_resource type="Script" uid="uid://d2t7ib3n4ne3v" path="res://asteroids/small_asteroid.gd" id="1_4hc8s"]
 [ext_resource type="Texture2D" uid="uid://c2yf6tro8g0nr" path="res://assets/asteroids/small_asteroid.png" id="1_a0yav"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4hc8s"]
 radius = 4.0
 
-[node name="small_asteroid" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_s7jjf"]
+radius = 4.0
+
+[node name="small_asteroid" type="RigidBody2D"]
+script = ExtResource("1_4hc8s")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -15,3 +20,9 @@ texture = ExtResource("1_a0yav")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_4hc8s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_s7jjf")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
