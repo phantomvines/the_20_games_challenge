@@ -10,6 +10,8 @@ radius = 8.0
 radius = 8.06226
 
 [node name="medium_asteroid" type="RigidBody2D"]
+mass = 3.0
+gravity_scale = 0.0
 script = ExtResource("1_hc1ia")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

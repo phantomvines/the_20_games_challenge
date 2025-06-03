@@ -13,7 +13,6 @@ func _physics_process(delta: float) -> void:
 
 # when player hits asteroid
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	print("player hit")
 	if body.is_in_group("player"):
 		Scenemanager.lifes -= 1
 

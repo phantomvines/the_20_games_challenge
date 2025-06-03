@@ -16,4 +16,5 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 # when bullet hits asteroid
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	# split in two smaller asteroids or be destroyed when smallest
-	queue_free()
+	if area.is_in_group("player_bullet"):
+		queue_free()
