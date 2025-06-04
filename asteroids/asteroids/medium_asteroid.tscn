@@ -7,7 +7,7 @@
 radius = 8.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rxk3i"]
-radius = 8.06226
+radius = 7.0
 
 [node name="medium_asteroid" type="RigidBody2D"]
 mass = 3.0
