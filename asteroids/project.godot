@@ -23,7 +23,9 @@ Scenemanager="*res://Scenemanager.gd"
 
 window/size/viewport_width=400
 window/size/viewport_height=300
-window/stretch/mode="viewport"
+window/size/extend_to_title=true
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [global_group]
 
