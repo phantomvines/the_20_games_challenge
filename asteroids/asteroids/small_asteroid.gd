@@ -12,6 +12,7 @@ func _physics_process(delta: float) -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		Scenemanager.lifes -= 1
+		queue_free()
 
 # when bullet hits asteroid
 func _on_area_2d_area_entered(area: Area2D) -> void:

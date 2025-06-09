@@ -14,27 +14,30 @@ func _physics_process(delta: float) -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		Scenemanager.lifes -= 1
+		destroy_asteroid()
 
 # when bullet hits asteroid
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player_bullet"):
-		# split in two smaller asteroids or be destroyed when smallest
-		var small_asteroid_1 = small_asteroid.instantiate()
-		var small_asteroid_2 = small_asteroid.instantiate()
+		destroy_asteroid()
 	
-		get_parent().add_child(small_asteroid_1)
-		get_parent().add_child(small_asteroid_2)
+
+func destroy_asteroid() -> void:
+	# split in two smaller asteroids or be destroyed when smallest
+	var small_asteroid_1 = small_asteroid.instantiate()
+	var small_asteroid_2 = small_asteroid.instantiate()
+	
+	get_parent().add_child(small_asteroid_1)
+	get_parent().add_child(small_asteroid_2)
 
 	
-		# set asteroid position to position of mother asteroid
-		small_asteroid_1.position = position
-		small_asteroid_2.position = position
+	# set asteroid position to position of mother asteroid
+	small_asteroid_1.position = position
+	small_asteroid_2.position = position
 	
-		# assign random directions to asteroids
-		small_asteroid_1.dir = Vector2.RIGHT.rotated(randf() * PI * 2).normalized()
-		small_asteroid_2.dir = Vector2.RIGHT.rotated(randf() * PI * 2).normalized()
-	
-		# destroy original asteroid
-		queue_free()
-	
-	
+	# assign random directions to asteroids
+	small_asteroid_1.dir = Vector2.RIGHT.rotated(randf() * PI * 2).normalized()
+	small_asteroid_2.dir = Vector2.RIGHT.rotated(randf() * PI * 2).normalized()
+		
+	# destroy original asteroid
+	queue_free()
