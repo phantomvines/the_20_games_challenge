@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://ygp7dqu3fe8p"]
+[gd_scene load_steps=13 format=3 uid="uid://ygp7dqu3fe8p"]
 
 [ext_resource type="Script" uid="uid://ctyviqnxkwa67" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://rmb8ngk406go" path="res://player/player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://bmc0v5tvtvqce" path="res://asteroids/big_asteroid.tscn" id="2_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://diott4nqj5jy7" path="res://assets/player/player.png" id="4_1bvp3"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ig7tw"]
 
@@ -64,6 +65,7 @@ shape = SubResource("WorldBoundaryShape2D_1bvp3")
 position = Vector2(133, 113)
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Lifes: 5"
@@ -87,6 +89,33 @@ shape = SubResource("RectangleShape2D_lquwl")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="bounding_left_right"]
 position = Vector2(435, 151)
 shape = SubResource("RectangleShape2D_7mycd")
+
+[node name="health_display" type="Node2D" parent="."]
+
+[node name="1" type="Sprite2D" parent="health_display"]
+position = Vector2(84, 14)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_1bvp3")
+
+[node name="2" type="Sprite2D" parent="health_display"]
+position = Vector2(66, 14)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_1bvp3")
+
+[node name="3" type="Sprite2D" parent="health_display"]
+position = Vector2(48, 14)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_1bvp3")
+
+[node name="4" type="Sprite2D" parent="health_display"]
+position = Vector2(30, 14)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_1bvp3")
+
+[node name="5" type="Sprite2D" parent="health_display"]
+position = Vector2(12, 14)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_1bvp3")
 
 [connection signal="body_entered" from="bounding_up_down" to="." method="_on_bounding_up_down_body_entered"]
 [connection signal="body_entered" from="bounding_left_right" to="." method="_on_bounding_left_right_body_entered"]

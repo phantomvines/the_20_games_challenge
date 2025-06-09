@@ -5,7 +5,17 @@ func _ready() -> void:
 	$Label.text = "Lifes: " + str(Scenemanager.lifes)
 
 func _physics_process(delta: float) -> void:
-	$Label.text = "Lifes: " + str(Scenemanager.lifes)
+	#$Label.text = "Lifes: " + str(Scenemanager.lifes)
+	if Scenemanager.lifes == 4:
+		$"health_display/1".visible = false
+	elif Scenemanager.lifes == 3:
+		$"health_display/2".visible = false
+	elif Scenemanager.lifes == 2:
+		$"health_display/3".visible = false
+	elif Scenemanager.lifes == 1:
+		$"health_display/4".visible = false
+	elif Scenemanager.lifes == 0:
+		$"health_display/5".visible = false
 	
 	# Deathd
 	if Scenemanager.lifes <= 0:
