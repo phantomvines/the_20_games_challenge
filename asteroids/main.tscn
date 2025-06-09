@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ygp7dqu3fe8p"]
+[gd_scene load_steps=12 format=3 uid="uid://ygp7dqu3fe8p"]
 
 [ext_resource type="Script" uid="uid://ctyviqnxkwa67" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://rmb8ngk406go" path="res://player/player.tscn" id="1_ig7tw"]
@@ -14,6 +14,18 @@ distance = -2.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1bvp3"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
+size = Vector2(418, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(453, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
+size = Vector2(20, 338)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7mycd"]
+size = Vector2(20, 328)
+
 [node name="main" type="Node2D"]
 script = ExtResource("1_h2yge")
 
@@ -25,27 +37,27 @@ scale = Vector2(0.7, 0.7)
 max_rotation_speed = 5
 turn_force = 2
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="bounding_box" type="Area2D" parent="."]
 collision_layer = 3
 collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bounding_box"]
 position = Vector2(207, 301)
 shape = SubResource("WorldBoundaryShape2D_ig7tw")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="bounding_box"]
 position = Vector2(-19, 131)
 rotation = 1.5708
 shape = SubResource("WorldBoundaryShape2D_0xm2m")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="bounding_box"]
 position = Vector2(187, 1)
 rotation = 3.14159
 shape = SubResource("WorldBoundaryShape2D_h2yge")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="bounding_box"]
 position = Vector2(401, 138)
-rotation = 4.71239
+rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_1bvp3")
 
 [node name="big_asteroid" parent="." instance=ExtResource("2_0xm2m")]
@@ -55,3 +67,26 @@ position = Vector2(133, 113)
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Lifes: 5"
+
+[node name="bounding_up_down" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bounding_up_down"]
+position = Vector2(200, -31)
+shape = SubResource("RectangleShape2D_h2yge")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="bounding_up_down"]
+position = Vector2(202, 332)
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="bounding_left_right" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bounding_left_right"]
+position = Vector2(-32, 148)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="bounding_left_right"]
+position = Vector2(435, 151)
+shape = SubResource("RectangleShape2D_7mycd")
+
+[connection signal="body_entered" from="bounding_up_down" to="." method="_on_bounding_up_down_body_entered"]
+[connection signal="body_entered" from="bounding_left_right" to="." method="_on_bounding_left_right_body_entered"]
