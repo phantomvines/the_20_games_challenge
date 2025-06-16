@@ -39,5 +39,7 @@ func destroy_asteroid() -> void:
 	small_asteroid_1.dir = Vector2.RIGHT.rotated(randf() * PI * 2).normalized()
 	small_asteroid_2.dir = Vector2.RIGHT.rotated(randf() * PI * 2).normalized()
 		
+	Scenemanager.score += 120
+	
 	# destroy original asteroid
 	queue_free()

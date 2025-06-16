@@ -114,5 +114,12 @@ position = Vector2(12, 14)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_1bvp3")
 
+[node name="score" type="Label" parent="."]
+offset_left = 6.0
+offset_top = 24.0
+offset_right = 46.0
+offset_bottom = 47.0
+text = "0"
+
 [connection signal="body_entered" from="bounding_up_down" to="." method="_on_bounding_up_down_body_entered"]
 [connection signal="body_entered" from="bounding_left_right" to="." method="_on_bounding_left_right_body_entered"]

@@ -11,6 +11,9 @@ func _ready() -> void:
 	$Label.text = "Lifes: " + str(Scenemanager.lifes)
 
 func _physics_process(delta: float) -> void:
+	# update score label
+	$score.text = str(Scenemanager.score)
+	
 	#$Label.text = "Lifes: " + str(Scenemanager.lifes)
 	if Scenemanager.lifes == 4:
 		$"health_display/1".visible = false
