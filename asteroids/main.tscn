@@ -1,8 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://ygp7dqu3fe8p"]
+[gd_scene load_steps=12 format=3 uid="uid://ygp7dqu3fe8p"]
 
 [ext_resource type="Script" uid="uid://ctyviqnxkwa67" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://rmb8ngk406go" path="res://player/player.tscn" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://bmc0v5tvtvqce" path="res://asteroids/big_asteroid.tscn" id="2_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://diott4nqj5jy7" path="res://assets/player/player.png" id="4_1bvp3"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ig7tw"]
@@ -29,6 +28,7 @@ size = Vector2(20, 328)
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_h2yge")
+asteroid_spawn_rate = 0.005
 
 [node name="background" type="Sprite2D" parent="."]
 
@@ -60,9 +60,6 @@ shape = SubResource("WorldBoundaryShape2D_h2yge")
 position = Vector2(401, 138)
 rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_1bvp3")
-
-[node name="big_asteroid" parent="." instance=ExtResource("2_0xm2m")]
-position = Vector2(133, 113)
 
 [node name="Label" type="Label" parent="."]
 visible = false
