@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=4 uid="uid://c5y4x1kos4fkb"]
+
+[ext_resource type="Texture2D" uid="uid://b133yvq2rc84v" path="res://assets/Floor/Floor_Tilemap.png" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://d2cka7feedr34" path="res://Player/player.tscn" id="2_0xm2m"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0xm2m"]
+texture = ExtResource("1_ig7tw")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrain = 0
+0:0/0/terrains_peering_bit/right_side = 0
+0:0/0/terrains_peering_bit/bottom_right_corner = 0
+0:0/0/terrains_peering_bit/bottom_side = 0
+0:0/0/terrains_peering_bit/bottom_left_corner = 0
+0:0/0/terrains_peering_bit/left_side = 0
+0:0/0/terrains_peering_bit/top_left_corner = 0
+0:0/0/terrains_peering_bit/top_side = 0
+0:0/0/terrains_peering_bit/top_right_corner = 0
+1:0/0 = 0
+1:0/0/terrain_set = 0
+1:0/0/terrain = 1
+1:0/0/terrains_peering_bit/right_side = 1
+1:0/0/terrains_peering_bit/bottom_right_corner = 1
+1:0/0/terrains_peering_bit/bottom_side = 1
+1:0/0/terrains_peering_bit/bottom_left_corner = 1
+1:0/0/terrains_peering_bit/left_side = 1
+1:0/0/terrains_peering_bit/top_left_corner = 1
+1:0/0/terrains_peering_bit/top_side = 1
+1:0/0/terrains_peering_bit/top_right_corner = 1
+2:0/0 = 0
+2:0/0/terrain_set = 0
+2:0/0/terrain = 2
+2:0/0/terrains_peering_bit/right_side = 2
+2:0/0/terrains_peering_bit/bottom_right_corner = 2
+2:0/0/terrains_peering_bit/bottom_side = 2
+2:0/0/terrains_peering_bit/bottom_left_corner = 2
+2:0/0/terrains_peering_bit/left_side = 2
+2:0/0/terrains_peering_bit/top_left_corner = 2
+2:0/0/terrains_peering_bit/top_side = 2
+2:0/0/terrains_peering_bit/top_right_corner = 2
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_h2yge"]
+tile_size = Vector2i(32, 32)
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Dirt"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+terrain_set_0/terrain_1/name = "Tilled"
+terrain_set_0/terrain_1/color = Color(0.753126, 0.240402, 0.138742, 1)
+terrain_set_0/terrain_2/name = "Watered"
+terrain_set_0/terrain_2/color = Color(0.177998, 0.513778, 0.667498, 1)
+sources/0 = SubResource("TileSetAtlasSource_0xm2m")
+
+[node name="main" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAQAAcAAAAAAAAAAAAPAAgAAAAAAAAAAAAOAAkAAAAAAAAAAAANAAkAAAAAAAAAAAANAAoAAAAAAAAAAAAMAAoAAAAAAAAAAAAMAAsAAAAAAAAAAAALAAsAAAAAAAAAAAANAAsAAAAAAAAAAAAOAAsAAAAAAAAAAAAPAAoAAAAAAAAAAAAQAAoAAAAAAAAAAAARAAkAAAAAAAAAAAASAAkAAAAAAAAAAAATAAkAAAAAAAAAAAAUAAgAAAAAAAAAAAAVAAcAAAAAAAAAAAAWAAcAAAAAAAAAAAAVAAgAAAAAAAAAAAASAAoAAAAAAAAAAAARAAoAAAAAAAAAAAAPAAsAAAAAAAAAAAAMAAwAAAAAAAAAAAALAAwAAAAAAAAAAAAOAAoAAAAAAAAAAAATAAgAAAAAAAAAAAAWAAgAAAAAAAAAAAAXAAcAAAAAAAAAAAAUAAcAAAAAAAAAAAATAAcAAAAAAAAAAAASAAcAAAAAAAAAAAARAAcAAAAAAAAAAAAQAAgAAAAAAAAAAAAOAAgAAAAAAAAAAAASAAgAAAAAAAAAAAARAAgAAAAAAAAAAAAQAAkAAAAAAAAAAAAPAAkAAAAAAAAAAAAVAAkAAAAAAAAAAAAUAAkAAAAAAAAAAAATAAoAAAAAAAAAAAAQAAsAAAAAAAAAAAANAAwAAAAAAAAAAAAMAA0AAAAAAAAAAAANAA0AAAAAAAAAAAAOAA0AAAAAAAAAAAAPAAwAAAAAAAAAAAAQAAwAAAAAAAAAAAARAAsAAAAAAAAAAAASAAsAAAAAAAAAAAAUAAoAAAAAAAAAAAAVAAoAAAAAAAAAAAAWAAkAAAAAAAAAAAAXAAkAAAAAAAAAAAAOAAwAAAAAAAAAAAARAAwAAAAAAAAAAAATAAsAAAAAAAAAAAASAAwAAAAAAAAAAAATAAwAAAAAAAAAAAAUAAsAAAAAAAAAAAAVAAsAAAAAAAAAAAAWAAoAAAAAAAAAAAAXAAoAAAAAAAAAAAAWAAsAAAAAAAAAAAAUAAwAAAAAAAAAAAASAA0AAAAAAAAAAAARAA0AAAAAAAAAAAAVAAwAAAAAAAAAAAAXAAsAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_h2yge")
+
+[node name="Player" parent="." instance=ExtResource("2_0xm2m")]
+position = Vector2(521, 296)

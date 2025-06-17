@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2cka7feedr34"]
+
+[ext_resource type="Texture2D" uid="uid://dygy2eekj6ji2" path="res://assets/Player/Player_Placeholder.png" id="1_l8h54"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4ntmi"]
+height = 50.0
+
+[node name="Player" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_l8h54")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_4ntmi")
