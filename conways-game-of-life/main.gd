@@ -7,6 +7,9 @@ func _ready() -> void:
 	fill_random()
 	print(board)
 
+func update_conway() -> void:
+	var board_new = 
+
 # fill the board with 0 and 1 randomly
 func fill_random() -> void:
 	for i in range(board.size()):
@@ -14,8 +17,10 @@ func fill_random() -> void:
 			board[i][j] = randi_range(0,1)
 
 # makes a quadratic 2D-Array filled with zeros, based on size
-func init_array(size) -> void:
+func init_array(size):
+	var new_board
 	for i in range(size):
-		board.append([])
+		new_board.append([])
 		for j in range(size): 
-			board[i].append(0)
+			new_board[i].append(0)
+	return new_board
