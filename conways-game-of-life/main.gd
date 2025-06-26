@@ -6,6 +6,18 @@ func _ready() -> void:
 	board = init_array(10)
 	fill_random()
 	print(board)
+	draw_board()
+
+# draw board on tilemaplayer
+func draw_board() -> void:
+	for i in range(board.size()):
+		for j in range(board.size()):
+			# Get the tile at position
+			var tile = $TileMapLayer.get_cellv(Vector2(i, j))
+			# Set a tile at position (5, 3) to tile ID 1
+			$TileMapLayer.set_cellv(Vector2(i, j), 1)
+			# Force redraw if needed
+			$TileMapLayer.update()
 
 # update the board once
 func update_conway() -> void:
@@ -39,7 +51,7 @@ func fill_random() -> void:
 
 # makes a quadratic 2D-Array filled with zeros, based on size
 func init_array(size):
-	var new_board
+	var new_board = []
 	for i in range(size):
 		new_board.append([])
 		for j in range(size): 
