@@ -74,3 +74,8 @@ script = ExtResource("1_ig7tw")
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray(0, 0, 1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 2, 0, 0, 0, 0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 0, 0, 0, 0)
 tile_set = SubResource("TileSet_1bvp3")
+
+[node name="update_timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="update_timer" to="." method="_on_update_timer_timeout"]
