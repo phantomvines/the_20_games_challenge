@@ -1,7 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5x5066rekrv8"]
+[gd_scene load_steps=7 format=3 uid="uid://c5x5066rekrv8"]
 
 [ext_resource type="Script" uid="uid://b5ss5iyn3l1al" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://mpaoqvcfpfw5" path="res://assets/FIREFLY.png" id="2_0xm2m"]
+[ext_resource type="Shader" uid="uid://ehc5uoard5fm" path="res://tilemap.gdshader" id="2_h2yge"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h2yge"]
+shader = ExtResource("2_h2yge")
+shader_parameter/alive_colour = Vector4(1, 1, 0, 1)
+shader_parameter/dead_colour = Vector4(0, 0, 0, 1)
+shader_parameter/glow_strength = 2.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h2yge"]
 texture = ExtResource("2_0xm2m")
@@ -72,6 +79,7 @@ sources/0 = SubResource("TileSetAtlasSource_h2yge")
 script = ExtResource("1_ig7tw")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
+material = SubResource("ShaderMaterial_h2yge")
 position = Vector2(-50, -50)
 scale = Vector2(0.255, 0.255)
 tile_map_data = PackedByteArray(0, 0, 1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 2, 0, 0, 0, 0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 0, 0, 0, 0)
