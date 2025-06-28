@@ -3,7 +3,7 @@ extends Node2D
 var board = []
 
 func _ready() -> void:
-	board = init_array(100)
+	board = init_array(150)
 	fill_random()
 	print(board)
 	draw_board()

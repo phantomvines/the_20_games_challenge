@@ -72,10 +72,13 @@ sources/0 = SubResource("TileSetAtlasSource_h2yge")
 script = ExtResource("1_ig7tw")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(-50, -20)
+scale = Vector2(0.3, 0.3)
 tile_map_data = PackedByteArray(0, 0, 1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 2, 0, 0, 0, 0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 0, 0, 0, 0)
 tile_set = SubResource("TileSet_1bvp3")
 
 [node name="update_timer" type="Timer" parent="."]
+wait_time = 0.1
 autostart = true
 
 [connection signal="timeout" from="update_timer" to="." method="_on_update_timer_timeout"]
