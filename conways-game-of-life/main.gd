@@ -13,11 +13,25 @@ func draw_board() -> void:
 	for i in range(board.size()):
 		for j in range(board.size()):
 			# Get the tile at position
-			var tile = $TileMapLayer.get_cellv(Vector2(i, j))
+			#var tile = $TileMapLayer.get_cellv(Vector2(i, j))
 			# Set a tile at position (5, 3) to tile ID 1
-			$TileMapLayer.set_cellv(Vector2(i, j), 1)
+			#$TileMapLayer.set_cellv(Vector2(i, j), 1)
 			# Force redraw if needed
-			$TileMapLayer.update()
+			#$TileMapLayer.update()
+			# get state of cell
+			var cell_alive = board[i][j] == 1
+			
+			# whes using atlas coords, tile id is 0
+			var tile_id = 0
+			
+			# decide which tile id to use
+			var atlas_coords = Vector2(0,0)
+			if cell_alive:
+				atlas_coords = Vector2(2,0)
+				print(1)
+			
+			# set cell in tilemaplayer
+			$TileMapLayer.set_cell(Vector2(i,j), tile_id, atlas_coords)
 
 # update the board once
 func update_conway() -> void:
@@ -26,7 +40,7 @@ func update_conway() -> void:
 	for i in range(board.size()):
 		for j in range(board.size()):
 			# all of the middle squares, not the edges
-			if i >= 1 and j >= 1 and i <= board.size() and j <= board.size():
+			if i >= 1 and j >= 1 and i <= board.size()-1 and j <= board.size()-1:
 				var total = 0
 				
 				# add all states of surrounding and self together
