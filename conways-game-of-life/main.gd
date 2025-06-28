@@ -1,11 +1,11 @@
 extends Node2D
 
 var board = []
+var alive_frequency = 0.1
 
 func _ready() -> void:
 	board = init_array(150)
 	fill_random()
-	print(board)
 	draw_board()
 
 # draw board on tilemaplayer
@@ -55,7 +55,11 @@ func update_conway() -> void:
 func fill_random() -> void:
 	for i in range(board.size()):
 		for j in range(board[0].size()):
-			board[i][j] = randi_range(0,1)
+			var rand = randf()
+			if rand < alive_frequency:
+				board[i][j] = 1
+			else:
+				board[i][j] = 0
 
 # makes a quadratic 2D-Array filled with zeros, based on size
 func init_array(size_board):

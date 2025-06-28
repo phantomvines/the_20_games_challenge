@@ -72,8 +72,8 @@ sources/0 = SubResource("TileSetAtlasSource_h2yge")
 script = ExtResource("1_ig7tw")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-position = Vector2(-50, -20)
-scale = Vector2(0.3, 0.3)
+position = Vector2(-50, -50)
+scale = Vector2(0.255, 0.255)
 tile_map_data = PackedByteArray(0, 0, 1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 2, 0, 0, 0, 0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 0, 0, 0, 0)
 tile_set = SubResource("TileSet_1bvp3")
 
