@@ -1,8 +1,9 @@
 shader_type canvas_item;
+render_mode unshaded, blend_add;
 
 // definitions of variables
-uniform vec4 alive_colour = vec4(1.0, 1.0, 0.0, 1.0);
-uniform vec4 dead_colour = vec4(0.0, 0.0, 0.0, 1.0);
+uniform vec4 alive_colour = vec4(0.0, 1.0, 0.0, 1.0);
+uniform vec4 dead_colour = vec4(0.0, 0.0, 1.0, 1.0);
 uniform float glow_strength = 3.0;
 
 

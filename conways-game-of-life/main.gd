@@ -2,11 +2,27 @@ extends Node2D
 
 var board = []
 var alive_frequency = 0.1
+var paused = true
 
 func _ready() -> void:
 	board = init_array(150)
 	fill_random()
 	draw_board()
+
+func _physics_process(delta: float) -> void:
+	$update_timer.paused = paused
+	
+	# pause the game when space is pressed
+	if Input.is_action_just_pressed("space"):
+		if paused:
+			paused = false
+		else:
+			paused = true
+	
+	if Input.is_action_just_pressed("forward"):
+		if paused:
+			update_conway()
+			draw_board()
 
 # draw board on tilemaplayer
 func draw_board() -> void:
