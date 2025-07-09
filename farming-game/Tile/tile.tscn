@@ -54,7 +54,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Tile" type="Node2D"]
+[node name="Tile" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_ju0r8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

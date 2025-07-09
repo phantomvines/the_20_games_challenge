@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 var watered: bool = false 
 var tilled: bool = false
@@ -7,6 +7,7 @@ var growth_stage = 0
 
 func _ready() -> void:
 	set_animation()
+	set_custom_minimum_size(Vector2(32, 32))
 
 
 func set_animation() -> void:
